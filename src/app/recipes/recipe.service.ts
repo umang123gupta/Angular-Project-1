@@ -9,24 +9,31 @@ import { Recipe } from './recipe.model';
 export class RecipeService{
 recipeChanged = new Subject<Recipe[]>();
 
-private recipes : Recipe[]=[
-    new Recipe('Pizza',
-    'Delicious Pizza',
-    'https://static.toiimg.com/photo/msid-87930581/87930581.jpg?211826',
-    [
-      new Ingredient('Chees',1),
-      new Ingredient('Breads',10)
-    ]),
-    new Recipe('Burger',
-    'tasty burger',
-    'https://us.123rf.com/450wm/alexskp/alexskp2003/alexskp200300082/143499095-fresh-tasty-burger-isolated-on-white.jpg?ver=6',
-    [
-      new Ingredient('buns',2),
-      new Ingredient('Sauce',3)
-    ]),
-]
+// private recipes : Recipe[]=[
+//     new Recipe('Pizza',
+//     'Delicious Pizza',
+//     'https://static.toiimg.com/photo/msid-87930581/87930581.jpg?211826',
+//     [
+//       new Ingredient('Chees',1),
+//       new Ingredient('Breads',10)
+//     ]),
+//     new Recipe('Burger',
+//     'tasty burger',
+//     'https://us.123rf.com/450wm/alexskp/alexskp2003/alexskp200300082/143499095-fresh-tasty-burger-isolated-on-white.jpg?ver=6',
+//     [
+//       new Ingredient('buns',2),
+//       new Ingredient('Sauce',3)
+//     ]),
+// ]
 
+private recipes: Recipe[]=[];
 constructor(private slService:ShoppingListService){}
+
+setRecipes(recipes:Recipe[]){
+  this.recipes = recipes;
+  this.recipeChanged.next(this.recipes.slice());
+}
+
 
 getRecipes(){
   return this.recipes.slice();  
