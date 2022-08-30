@@ -1,5 +1,7 @@
-<div class="alert alert-info" role="alert">
-  Select Recipe to <strong>EDIT</strong>  | <strong>DELETE</strong> | <strong>MOVE TO SHOPPING LIST</strong> 
+<div class="alert alert-info" role="alert" *ngIf="index===0">
+    <div >
+    Select Recipe to <strong>EDIT</strong>  | <strong>DELETE</strong> | <strong>MOVE TO SHOPPING LIST</strong> 
+    </div>
 </div>
 <a style="cursor:pointer ;" 
 class="list-group-item clearfix" 

@@ -11,6 +11,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class HeaderComponent implements OnInit,OnDestroy {
   isAuthenticated=false;
   private userSub: Subscription;
+  
+  
+  fetchData:boolean=true;
 
 
   constructor(private dataStorageService : DataStorageService,private authService:AuthService){}
@@ -19,12 +22,14 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.userSub=this.authService.user.subscribe(user =>{
       this.isAuthenticated= !!user;
     });
+    
   }
 
   onSaveData(){
     this.dataStorageService.storeRecipes();
   }
   onFetchData(){
+    this.fetchData=false;
     this.dataStorageService.fetchRecipes().subscribe();
   }
   onLogout(){
