@@ -27,6 +27,9 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">Save Data</a>
           <a class="dropdown-item" style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a>
+          <div *ngIf="fetchData">
+            {{onFetchData()}}
+          </div>
         </div>
       </li>
     </ul>
